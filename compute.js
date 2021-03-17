@@ -21,14 +21,13 @@ const server =
        
           //console.log("Look for query parameter data: " + search_params.get("data"))
           console.log("Look for query parameter x: " + search_params.get("x"))
-        
+          console.log("Look for query parameter y: " + search_params.get("y"))
           var valueOfX=search_params.get("x")
-          
+          var valueOfY=search_params.get("y")
           // Process the queries here
           res.statusCode = 200      //code for OK
           res.setHeader('Content-Type', 'text/plain') 
-          
-          res.write(`The value of Math.floor(${valueOfX}) is  ${Math.floor(valueOfX)}\n`)
+          res.write(`The value of Math.floor(${valueOfX}) is ${Math.floor(valueOfX)} and Math.floor(${valueOfY}) is ${Math.floor(valueOfY)}`)
          
          
           console.log(`Server running at http://${hostname}:${port}/`)
