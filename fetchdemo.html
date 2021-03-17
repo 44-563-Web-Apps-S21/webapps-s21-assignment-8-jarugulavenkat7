@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+
+        </title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <h1>Venkat Sai Jarugula computes</h1>
+        <form>
+            <div class="form-group">
+            <label for="first_value"><h5>Enter a number</h5></label>
+            <input class="form-control" type ="number" id="first_value" name="first_value" > <br>
+            </div>
+            <div class="form-group">
+            <label for="second_value"><h5>Enter a number</h5></label>
+            <input class="form-control" type ="number" id="second_value" name="second_value" > <br>
+            </div>
+            <input type="button" class="btn btn-outline-primary" onclick="computeValues()" value="Remote compute">
+            
+            
+        </form>
+        <div id="result">Here is the result</div>
+        <script>
+           
+            function  computeValues(){
+                let x=document.getElementById("first_value").value
+           
+           let y=document.getElementById("second_value").value
+           console.log(x);
+           console.log(y);
+           let url=`http://127.0.0.1:3001?x=${x}&y=${y}`;
+                fetch(url).then(
+                    (response)=>{
+                        console.log(response)
+                        return response.text()})
+                        .then((data) => {document.getElementById("result").innerHTML=data})
+                        .catch(err=>{document.getElementById("result").innerHTML=err})
+
+            }
+
+        </script>
+    </body>
+</html>
