@@ -13,8 +13,13 @@
     </head>
     <body>
         <h1>Bits of Fortunes</h1>
-        <button type="button" class="btn btn-outline-success" onclick="getFortune()">Click here to know about your fortune</button>
-        <div id="result">Here is your fortune</div>
+        <div class="col-md-3">
+        <button type="button" class="btn btn-outline-primary" onclick="getFortune()">Click here to know about your fortune</button>
+    </div>
+    <br>
+    <div class="col-md-3">
+        <div id="result" class="alert alert-primary" role="alert">Here is the result</div>
+    </div>
         <script>
             function  getFortune(){
            
